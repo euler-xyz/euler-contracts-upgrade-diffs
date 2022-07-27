@@ -6,7 +6,7 @@
         <div style="margin-bottom: 30px">
             <h1>Euler diff: contracts/modules/Liquidation.sol</h1>
             <div>Before: contract <a href="https://etherscan.io/address/0x9eA85BCB76e4D52b03C44366d72cA5915A9F156C#code">0x9eA85BCB76e4D52b03C44366d72cA5915A9F156C</a></div>
-            <div>After: git <a href="https://github.com/euler-xyz/euler-contracts/blob/85abe8d0986f97557159d26c5e79df6d78eccc53/contracts/modules/Liquidation.sol">85abe8d0986f97557159d26c5e79df6d78eccc53</a></div>
+            <div>After: git <a href="https://github.com/euler-xyz/euler-contracts/blob/cd3036e0087280365819f99ad531141894d0b7ee/contracts/modules/Liquidation.sol">cd3036e0087280365819f99ad531141894d0b7ee</a></div>
         </div>
     <div class="d2h-file-list-wrapper">
     <div class="d2h-file-list-header">
@@ -22,7 +22,7 @@
           <path d="M13 1H1C0.45 1 0 1.45 0 2v12c0 0.55 0.45 1 1 1h12c0.55 0 1-0.45 1-1V2c0-0.55-0.45-1-1-1z m0 13H1V2h12v12zM4 8c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"></path>
       </svg>      <a href="#d2h-627464" class="d2h-file-name">contracts/BaseLogic.sol	</a>
       <span class="d2h-file-stats">
-          <span class="d2h-lines-added">+6</span>
+          <span class="d2h-lines-added">+11</span>
           <span class="d2h-lines-deleted">-5</span>
       </span>
     </span>
@@ -84,12 +84,216 @@
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -284,10 +284,11 @@</div>
+        <div class="d2h-code-line">@@ -256,13 +256,18 @@</div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">256</div>
+<div class="line-num2">256</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">        }</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">257</div>
+<div class="line-num2">257</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">    }</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">258</div>
+<div class="line-num2">258</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">259</div>
+<div class="line-num2">259</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">    function loadAssetCacheRO(address underlying, AssetStorage storage assetStorage) internal view returns (AssetCache memory assetCache) {</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">260</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        require(reentrancyLock == REENTRANCYLOCK__UNLOCKED, &quot;e&#x2F;ro-reentrancy&quot;);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">260</div>
+<div class="line-num2">261</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">        initAssetCache(underlying, assetStorage, assetCache);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">261</div>
+<div class="line-num2">262</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">    }</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">262</div>
+<div class="line-num2">263</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">264</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">    function internalLoadAssetCacheRO(address underlying, AssetStorage storage assetStorage) internal view returns (AssetCache memory assetCache) {</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">265</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        initAssetCache(underlying, assetStorage, assetCache);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">266</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">    }</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">263</div>
+<div class="line-num2">267</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">264</div>
+<div class="line-num2">268</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">269</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">265</div>
+<div class="line-num2">270</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">    &#x2F;&#x2F; Utils</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">266</div>
+<div class="line-num2">271</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">267</div>
+<div class="line-num2">272</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">    function decodeExternalAmount(AssetCache memory assetCache, uint externalAmount) internal pure returns (uint scaledAmount) {</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">268</div>
+<div class="line-num2">273</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">        require(externalAmount &lt;= assetCache.maxExternalAmount, &quot;e&#x2F;amount-too-large&quot;);</span>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="d2h-code-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-line">@@ -284,10 +289,11 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">284</div>
-<div class="line-num2">284</div>
+<div class="line-num2">289</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -100,7 +304,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">285</div>
-<div class="line-num2">285</div>
+<div class="line-num2">290</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -111,7 +315,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">286</div>
-<div class="line-num2">286</div>
+<div class="line-num2">291</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -122,7 +326,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">287</div>
-<div class="line-num2">287</div>
+<div class="line-num2">292</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -155,7 +359,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">288</div>
+<div class="line-num2">293</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -166,7 +370,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">289</div>
+<div class="line-num2">294</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -177,7 +381,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">290</div>
+<div class="line-num2">295</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -188,7 +392,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">290</div>
-<div class="line-num2">291</div>
+<div class="line-num2">296</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -199,7 +403,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">291</div>
-<div class="line-num2">292</div>
+<div class="line-num2">297</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -210,7 +414,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">292</div>
-<div class="line-num2">293</div>
+<div class="line-num2">298</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -221,7 +425,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">293</div>
-<div class="line-num2">294</div>
+<div class="line-num2">299</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -233,12 +437,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -306,9 +307,9 @@</div>
+        <div class="d2h-code-line">@@ -306,9 +312,9 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">306</div>
-<div class="line-num2">307</div>
+<div class="line-num2">312</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -249,7 +453,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">307</div>
-<div class="line-num2">308</div>
+<div class="line-num2">313</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -260,7 +464,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">308</div>
-<div class="line-num2">309</div>
+<div class="line-num2">314</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -271,7 +475,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">309</div>
-<div class="line-num2">310</div>
+<div class="line-num2">315</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -293,7 +497,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">311</div>
+<div class="line-num2">316</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -304,7 +508,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">311</div>
-<div class="line-num2">312</div>
+<div class="line-num2">317</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -315,7 +519,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">312</div>
-<div class="line-num2">313</div>
+<div class="line-num2">318</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -326,7 +530,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">313</div>
-<div class="line-num2">314</div>
+<div class="line-num2">319</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -337,7 +541,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">314</div>
-<div class="line-num2">315</div>
+<div class="line-num2">320</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -349,12 +553,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -441,13 +442,13 @@</div>
+        <div class="d2h-code-line">@@ -441,13 +447,13 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">441</div>
-<div class="line-num2">442</div>
+<div class="line-num2">447</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -365,7 +569,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">442</div>
-<div class="line-num2">443</div>
+<div class="line-num2">448</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -376,7 +580,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">443</div>
-<div class="line-num2">444</div>
+<div class="line-num2">449</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -387,7 +591,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">444</div>
-<div class="line-num2">445</div>
+<div class="line-num2">450</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -409,7 +613,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">446</div>
+<div class="line-num2">451</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -420,7 +624,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">446</div>
-<div class="line-num2">447</div>
+<div class="line-num2">452</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -431,7 +635,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">447</div>
-<div class="line-num2">448</div>
+<div class="line-num2">453</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -442,7 +646,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">448</div>
-<div class="line-num2">449</div>
+<div class="line-num2">454</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -464,7 +668,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">450</div>
+<div class="line-num2">455</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -475,7 +679,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">450</div>
-<div class="line-num2">451</div>
+<div class="line-num2">456</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -486,7 +690,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">451</div>
-<div class="line-num2">452</div>
+<div class="line-num2">457</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -497,7 +701,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">452</div>
-<div class="line-num2">453</div>
+<div class="line-num2">458</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -508,7 +712,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">453</div>
-<div class="line-num2">454</div>
+<div class="line-num2">459</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
