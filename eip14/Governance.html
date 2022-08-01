@@ -6,7 +6,7 @@
         <div style="margin-bottom: 30px">
             <h1>Euler diff: contracts/modules/Governance.sol</h1>
             <div>Before: contract <a href="https://etherscan.io/address/0x554ee3d9ed7E9ec21E186c7dd636430669812f73#code">0x554ee3d9ed7E9ec21E186c7dd636430669812f73</a></div>
-            <div>After: git <a href="https://github.com/euler-xyz/euler-contracts/blob/cd3036e0087280365819f99ad531141894d0b7ee/contracts/modules/Governance.sol">cd3036e0087280365819f99ad531141894d0b7ee</a></div>
+            <div>After: git <a href="https://github.com/euler-xyz/euler-contracts/blob/6086c6e585f03ceb3365a4e011dc892af96f1de8/contracts/modules/Governance.sol">6086c6e585f03ceb3365a4e011dc892af96f1de8</a></div>
         </div>
     <div class="d2h-file-list-wrapper">
     <div class="d2h-file-list-header">
@@ -22,8 +22,8 @@
           <path d="M13 1H1C0.45 1 0 1.45 0 2v12c0 0.55 0.45 1 1 1h12c0.55 0 1-0.45 1-1V2c0-0.55-0.45-1-1-1z m0 13H1V2h12v12zM4 8c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"></path>
       </svg>      <a href="#d2h-695215" class="d2h-file-name">contracts/modules/Governance.sol	</a>
       <span class="d2h-file-stats">
-          <span class="d2h-lines-added">+20</span>
-          <span class="d2h-lines-deleted">-3</span>
+          <span class="d2h-lines-added">+22</span>
+          <span class="d2h-lines-deleted">-4</span>
       </span>
     </span>
 </li>
@@ -198,7 +198,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        require(newPricingType &lt; PRICINGTYPE__OUT_OF_BOUNDS, &quot;e&#x2F;gov&#x2F;bad-pricing-type&quot;);</span>
+            <span class="d2h-code-line-ctn">        require(newPricingType &gt; 0 &amp;&amp; newPricingType &lt; PRICINGTYPE__OUT_OF_BOUNDS, &quot;e&#x2F;gov&#x2F;bad-pricing-type&quot;);</span>
         </div>
     </td>
 </tr><tr>
@@ -392,7 +392,29 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -82,23 +85,37 @@</div>
+        <div class="d2h-code-line">@@ -80,25 +83,40 @@</div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">80</div>
+<div class="line-num2">83</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-cntx">
+      <div class="line-num1">81</div>
+<div class="line-num2">84</div>
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">        updateAverageLiquidity(recipient);</span>
+        </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
@@ -417,9 +439,31 @@
         </div>
     </td>
 </tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">87</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        require(assetStorage.reserveBalance &gt;= INITIAL_RESERVES, &quot;e&#x2F;gov&#x2F;reserves-depleted&quot;);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">88</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        </span>
+        </div>
+    </td>
+</tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">84</div>
-<div class="line-num2">87</div>
+<div class="line-num2">89</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -430,7 +474,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">85</div>
-<div class="line-num2">88</div>
+<div class="line-num2">90</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -446,35 +490,57 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">        if (amount == type(uint).max) amount = assetStorage.reserveBalance;</span>
+            <span class="d2h-code-line-ctn">        <del>if (amount == type(</del>uint<del>).max)</del> <del>amount</del> = <del>assetStorage</del>.reserveBalance;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-del d2h-change">
+      <div class="line-num1">87</div>
+<div class="line-num2"></div>
+    </td>
+    <td class="d2h-del d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">-</span>
+            <span class="d2h-code-line-ctn">        <del>require</del>(amount <del>&lt;=</del> <del>assetStorage</del>.<del>reserveBalance,</del> <del>&quot;e&#x2F;gov&#x2F;insufficient-reserves&quot;)</del>;</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">89</div>
+<div class="line-num2">91</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        if (amount == type(uint).max) amount = assetStorage.reserveBalance<ins> - INITIAL_RESERVES</ins>;</span>
+            <span class="d2h-code-line-ctn">        uint <ins>maxAmount</ins> = <ins>assetCache</ins>.reserveBalance<ins> - INITIAL_RESERVES</ins>;</span>
         </div>
     </td>
 </tr><tr>
-    <td class="d2h-code-linenumber d2h-cntx">
-      <div class="line-num1">87</div>
-<div class="line-num2">90</div>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">92</div>
     </td>
-    <td class="d2h-cntx">
+    <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">        require(amount &lt;= assetStorage.reserveBalance, &quot;e&#x2F;gov&#x2F;insufficient-reserves&quot;);</span>
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        <ins>if </ins>(amount <ins>==</ins> <ins>type(uint)</ins>.<ins>max)</ins> <ins>amount = maxAmount</ins>;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">93</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        require(amount &lt;= maxAmount, &quot;e&#x2F;gov&#x2F;insufficient-reserves&quot;);</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">88</div>
-<div class="line-num2">91</div>
+<div class="line-num2">94</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -485,7 +551,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">89</div>
-<div class="line-num2">92</div>
+<div class="line-num2">95</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -496,7 +562,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">90</div>
-<div class="line-num2">93</div>
+<div class="line-num2">96</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -507,7 +573,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">91</div>
-<div class="line-num2">94</div>
+<div class="line-num2">97</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -518,7 +584,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">92</div>
-<div class="line-num2">95</div>
+<div class="line-num2">98</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -527,31 +593,9 @@
         </div>
     </td>
 </tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">96</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        require(assetStorage.reserveBalance &gt;= INITIAL_RESERVES, &quot;e&#x2F;gov&#x2F;reserves-depleted&quot;);</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">97</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">93</div>
-<div class="line-num2">98</div>
+<div class="line-num2">99</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -562,23 +606,12 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">94</div>
-<div class="line-num2">99</div>
+<div class="line-num2">100</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">&nbsp;</span>
             <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">100</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        if (assetStorage.users[recipient].owed != 0) checkLiquidity(recipient);</span>
         </div>
     </td>
 </tr><tr>
@@ -589,13 +622,24 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        if (assetStorage.users[recipient].owed != 0) checkLiquidity(recipient);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">102</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn"><br></span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">95</div>
-<div class="line-num2">102</div>
+<div class="line-num2">103</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -606,7 +650,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">96</div>
-<div class="line-num2">103</div>
+<div class="line-num2">104</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -617,7 +661,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">97</div>
-<div class="line-num2">104</div>
+<div class="line-num2">105</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -628,7 +672,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">98</div>
-<div class="line-num2">105</div>
+<div class="line-num2">106</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -639,23 +683,12 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">99</div>
-<div class="line-num2">106</div>
+<div class="line-num2">107</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">&nbsp;</span>
             <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">107</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    function setChainlinkPriceFeed(address underlying, address chainlinkAggregator) external nonReentrant governorOnly {</span>
         </div>
     </td>
 </tr><tr>
@@ -666,7 +699,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        address eTokenAddr = underlyingLookup[underlying].eTokenAddress;</span>
+            <span class="d2h-code-line-ctn">    function setChainlinkPriceFeed(address underlying, address chainlinkAggregator) external nonReentrant governorOnly {</span>
         </div>
     </td>
 </tr><tr>
@@ -677,7 +710,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        require(eTokenAddr != address(0), &quot;e&#x2F;gov&#x2F;underlying-not-activated&quot;);</span>
+            <span class="d2h-code-line-ctn">        address eTokenAddr = underlyingLookup[underlying].eTokenAddress;</span>
         </div>
     </td>
 </tr><tr>
@@ -688,13 +721,24 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        require(eTokenAddr != address(0), &quot;e&#x2F;gov&#x2F;underlying-not-activated&quot;);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">111</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn">        require(chainlinkAggregator != address(0), &quot;e&#x2F;gov&#x2F;bad-chainlink-address&quot;);</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">100</div>
-<div class="line-num2">111</div>
+<div class="line-num2">112</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -705,7 +749,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">112</div>
+<div class="line-num2">113</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -716,23 +760,12 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">113</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
 <div class="line-num2">114</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        emit GovSetChainlinkPriceFeed(underlying, chainlinkAggregator);</span>
+            <span class="d2h-code-line-ctn"><br></span>
         </div>
     </td>
 </tr><tr>
@@ -743,7 +776,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    }</span>
+            <span class="d2h-code-line-ctn">        emit GovSetChainlinkPriceFeed(underlying, chainlinkAggregator);</span>
         </div>
     </td>
 </tr><tr>
@@ -754,7 +787,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
+            <span class="d2h-code-line-ctn">    }</span>
         </div>
     </td>
 </tr><tr>
@@ -769,9 +802,20 @@
         </div>
     </td>
 </tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">118</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">101</div>
-<div class="line-num2">118</div>
+<div class="line-num2">119</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -782,7 +826,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">102</div>
-<div class="line-num2">119</div>
+<div class="line-num2">120</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -793,7 +837,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">103</div>
-<div class="line-num2">120</div>
+<div class="line-num2">121</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -804,7 +848,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">104</div>
-<div class="line-num2">121</div>
+<div class="line-num2">122</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
